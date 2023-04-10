@@ -47,11 +47,18 @@ const filterByServiceRecord = (arr) => {
 };
 
 const sortByScore = (arr) => {
-return arr.sort(arr.score)
+  const newArray = arr.slice()
+  return newArray.sort(function (x, y) {
+      return y.score - x.score
+  })
 };
-console.log(sortByScore(candidates))
-const getMeanAge = (arr) => {
 
+const getMeanAge = (arr) => {
+  let sum = 0; 
+  for (let i = 0; i < arr.length; i++) {
+      sum += arr[i].age
+  }
+  return sum / arr.length
 };
 
 const getMeanAgeReduce = (arr) => {
